@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from .database import init_db
 from .routers import character
 
@@ -11,5 +12,7 @@ init_db()
 app.include_router(character.router, prefix='/character')
 
 @app.get('/')
-async def root():
-    return {"message": "Character API"}
+async def redirect_to_streamlit():
+    return RedirectResponse("http://localhost:8501")
+# async def root():
+#     return {"message": "Character API"}
