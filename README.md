@@ -5,7 +5,7 @@
 ¡Bienvenid@s! Ya se puede desplegar la api en un entorno local (`venv`) en caso de necesitarlo (el despliegue con Docker continúa en configuración). En esta API Characters se encontrarán: 
 
 1. **API Documentada y Estructurada**  
-   - Arquitectura limpia con **FastAPI**, proporcionando una API rápida y eficiente, con documentación automática. 
+   - Se eligió FastAPI por su velocidad, eficiencia y su documentación automática. 
    - Documentación Swagger: [http://localhost:8000/docs](http://localhost:8000/docs)
    - La documentación proporciona uno de los entornos donde puede testear los endpoints.
 
