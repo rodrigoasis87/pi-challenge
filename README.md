@@ -52,9 +52,11 @@
 ### Ejecutar con ambiente virtual (Alternativa)
 
 1. **Asegúrate de tener Python y pip instalados**
-    `python -m venv venv`
-    `source venv/bin/activate  # Linux/MacOS`
-    `venv\Scripts\activate     # Windows`
+    ```
+    python -m venv venv
+    source venv/bin/activate  # Linux/MacOS
+    venv\Scripts\activate     # Windows
+    ```
 
 2. **Instalar dependencias**
     `pip install -r requirements.txt`
