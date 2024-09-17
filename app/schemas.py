@@ -1,7 +1,5 @@
-from datetime import date
 from pydantic import BaseModel, Field
 from enum import Enum
-from dateutil import parser
 
 # creo variables 
 
@@ -12,6 +10,7 @@ class HairColorEnum(str, Enum):
     red = "red"
     gray = "gray"
     white = "white"
+    no_hair = "no hair"
 
 class SkinColorEnum(str, Enum):
     light = "light"
@@ -31,16 +30,15 @@ class EyeColorEnum(str, Enum):
 
 class CharacterBase(BaseModel):
 
+    id: int = Field(...)
     name: str = Field(..., min_length=1, max_length=100)
     height: int = Field(..., gt=0)
     mass: int = Field(..., gt=0)
     hair_color: HairColorEnum = Field (...)
     skin_color: SkinColorEnum = Field (...)
     eye_color: EyeColorEnum = Field (...)
-    birth_year: date = Field(..., gt=0)
+    birth_year: int = Field(..., gt=0)
 
-    def get_birth_year(self):
-            return parser.parse(self.birth_year).year
 
 
 class CharacterCreate(CharacterBase):

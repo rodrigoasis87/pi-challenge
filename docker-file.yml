@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+    depends_on:
+      - db
+
+  streamlit:
+    build:
+      context: .
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+
+  db:
+    image: nouchka/sqlite3:latest
+    volumes:
+      - ./characters.db:/db/characters.db
+    command: ["sqlite3", "/db/characters.db"]
